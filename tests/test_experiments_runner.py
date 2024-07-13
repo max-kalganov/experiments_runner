@@ -3,10 +3,10 @@ import unittest
 from dataclasses import dataclass
 
 from experiments_runner.expertiments_runner import ExperimentsRunner
-from experiments_runner.dataset_store import DatasetStore
-from experiments_runner.metric_runner import MetricRunner
-from experiments_runner.model_runner import ModelRunner
-from experiments_runner.results_aggregator import ResultsAggregator
+from experiments_runner.dataset_stores.dataset_store import DatasetStore
+from experiments_runner.metrics_runners.metric_runner import MetricRunner
+from experiments_runner.models_runners.model_runner import ModelRunner
+from experiments_runner.results_aggregators.results_aggregator import ResultsAggregator
 
 
 @dataclass
