@@ -1,0 +1,2 @@
+class MetricRunner:
+    pass
