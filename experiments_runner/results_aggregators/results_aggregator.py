@@ -1,3 +1,4 @@
+import abc
 import logging
 import os
 import typing as tp
@@ -5,7 +6,7 @@ import typing as tp
 res_agg_logger = logging.getLogger('ResultsAggregatorLogger')
 
 
-class ResultsAggregator:
+class ResultsAggregator(abc.ABC):
     def __init__(self,
                  single_results_folder_name: str = 'single_results',
                  aggregated_results_file_name: str = 'aggregated_results'):
@@ -19,20 +20,25 @@ class ResultsAggregator:
     def _get_aggregated_results_path(self, folder: str, exp_name: str) -> str:
         return os.path.join(folder, exp_name, f"{self.aggregated_results_file_name}.csv")
 
+    @abc.abstractmethod
     def store_single_metric_result(self, model_name: str, metric_name: str,
                                    dataset_name: str, result: tp.Any) -> None:
         pass
 
+    @abc.abstractmethod
     def get_single_metric_results(self, model_name: str, metric_name: str) -> tp.List[tp.Any]:
         pass
 
+    @abc.abstractmethod
     def store_aggregated_results(self, model_name: str, metric_name: str,
                                  dataset_name: str, aggregated_result: tp.Any) -> None:
         pass
 
+    @abc.abstractmethod
     def to_csv_single_results(self, single_results_folder: str) -> None:
         pass
 
+    @abc.abstractmethod
     def to_csv_aggregated_results(self, aggregated_results_path: str) -> None:
         pass
 
