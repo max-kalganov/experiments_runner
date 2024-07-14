@@ -53,9 +53,9 @@ class TableResultsAggregator(ResultsAggregator):
                         with open(single_results_full_path, 'w') as f:
                             f.write('\n'.join([str(res) for res in metric_results]))
 
-    def to_local_store_aggregated_results(self, aggregated_results_path: str) -> None:
-        os.makedirs(os.path.dirname(aggregated_results_path))
+    def get_aggregated_results_df(self):
         all_aggregated_metrics: tp.List[pd.Series] = []
+
         for (model_name, dataset_name), stored_metrics in self.aggregated_metrics_store.items():
             all_aggregated_metrics.append(pd.Series({
                 self.table_cols_config.model_name_col: model_name,
@@ -63,4 +63,8 @@ class TableResultsAggregator(ResultsAggregator):
                 **stored_metrics
             }))
 
-        pd.concat(all_aggregated_metrics, axis=1).T.to_csv(aggregated_results_path, index=False)
+        return pd.concat(all_aggregated_metrics, axis=1).T
+
+    def to_local_store_aggregated_results(self, aggregated_results_path: str) -> None:
+        os.makedirs(os.path.dirname(aggregated_results_path))
+        self.get_aggregated_results_df().to_csv(aggregated_results_path, index=False)

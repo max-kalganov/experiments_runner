@@ -50,6 +50,6 @@ class ExperimentsRunner:
         for model in self.exp_models_runners:
             self.run_single_model(model)
 
-    def run(self):
+    def run_and_store(self):
         self.run_models()
         self.result_aggregator.to_local_store(folder=self.storage_folder, exp_name=self.exp_name)
