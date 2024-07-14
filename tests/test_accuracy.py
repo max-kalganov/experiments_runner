@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from experiments_runner.metrics_runners.accuracy_metric_runner import AccuracyMetricRunner
-from tests.test_utils import TestCaseParams, TestCompleteRunParams
+from tests.test_utils import TestCaseParams
 
 
 class TestBinAcc(TestCase):

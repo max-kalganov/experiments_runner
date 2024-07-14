@@ -37,7 +37,8 @@ class ExperimentsRunner:
         for metric in self.metrics_runners:
             all_single_metric_results = self.result_aggregator.get_single_metric_results(
                 model_name=model.name,
-                metric_name=metric.name
+                metric_name=metric.name,
+                dataset_name=self.dataset_store.name
             )
             aggregated_metric_result = metric.calculate_aggregated(single_results=all_single_metric_results)
             self.result_aggregator.store_aggregated_results(model_name=model.name,
@@ -51,4 +52,4 @@ class ExperimentsRunner:
 
     def run(self):
         self.run_models()
-        self.result_aggregator.to_csv_all(folder=self.storage_folder, exp_name=self.exp_name)
+        self.result_aggregator.to_local_store(folder=self.storage_folder, exp_name=self.exp_name)
