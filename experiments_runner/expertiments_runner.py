@@ -10,11 +10,13 @@ class ExperimentsRunner:
     def __init__(self,
                  exp_name: str,
                  storage_folder: str,
+                 batch_size: int,
                  exp_models_runners: tp.List[ModelRunner],
                  dataset_store: DatasetStore,
                  metrics_runners: tp.List[MetricRunner],
                  result_aggregator: ResultsAggregator):
         self.exp_name = exp_name
+        self.batch_size = batch_size
         self.storage_folder = storage_folder
         self.exp_models_runners = exp_models_runners
         self.dataset_store = dataset_store
@@ -25,14 +27,15 @@ class ExperimentsRunner:
         assert len(self.metrics_runners) > 0, "No metrics runners were provided"
 
     def run_single_model(self, model: ModelRunner):
-        for true_input, true_output in self.dataset_store.yield_samples():
-            pred_output = model.run(true_input)
+        for true_batch_input, true_batch_output in self.dataset_store.yield_batches(batch_size=self.batch_size):
+            pred_batch_output = model.run(true_batch_input)
             for metric in self.metrics_runners:
-                single_metric_result = metric.calculate(true_output, pred_output)
-                self.result_aggregator.store_single_metric_result(model_name=model.name,
-                                                                  metric_name=metric.name,
-                                                                  dataset_name=self.dataset_store.name,
-                                                                  result=single_metric_result)
+                for true_output, pred_output in zip(true_batch_output, pred_batch_output):
+                    single_metric_result = metric.calculate(true_output, pred_output)
+                    self.result_aggregator.store_single_metric_result(model_name=model.name,
+                                                                      metric_name=metric.name,
+                                                                      dataset_name=self.dataset_store.name,
+                                                                      result=single_metric_result)
 
         for metric in self.metrics_runners:
             all_single_metric_results = self.result_aggregator.get_single_metric_results(

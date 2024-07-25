@@ -7,5 +7,5 @@ class DatasetStore(abc.ABC):
         self.name = name
 
     @abc.abstractmethod
-    def yield_samples(self) -> tp.Iterable[tp.Tuple[tp.Any, tp.Any]]:
+    def yield_batches(self, batch_size: int) -> tp.Iterable[tp.Tuple[tp.Any, tp.Any]]:
         pass
