@@ -1,2 +1,0 @@
-tensorflow # for mnist
-pandas # for table results aggregator
