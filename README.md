@@ -4,7 +4,9 @@ ML experiments comparator is an easy tool for comparing different ML experiments
 
 ## Installation
 
-TBU
+You can install the ML experiments comparator from [PyPI](https://pypi.org/project/ml-exp-comparator/):
+
+`pip install ml_exp_comparator`
 
 ## How to use
 
