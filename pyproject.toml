@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ml_exp_comparator"
-version = "0.1.0"
+version = "1.0.0"
 description = "Compare ML experiments"
 readme = "README.md"
 authors = [{ name = "Max Kalganov", email = "maksim.kalganov@gmail.com" }]
