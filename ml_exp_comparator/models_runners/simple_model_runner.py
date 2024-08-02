@@ -2,7 +2,7 @@ import typing as tp
 
 import keras
 
-from experiments_runner.models_runners.model_runner import ModelRunner
+from ml_exp_comparator.models_runners.model_runner import ModelRunner
 
 
 class SimpleModelRunner(ModelRunner):

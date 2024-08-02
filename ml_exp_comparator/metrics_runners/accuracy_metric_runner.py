@@ -1,6 +1,6 @@
 import typing as tp
 
-from experiments_runner.metrics_runners.metric_runner import MetricRunner
+from ml_exp_comparator.metrics_runners.metric_runner import MetricRunner
 
 
 class AccuracyMetricRunner(MetricRunner):

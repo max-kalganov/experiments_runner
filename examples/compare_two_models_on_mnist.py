@@ -2,13 +2,13 @@ import typing as tp
 import tensorflow as tf
 import numpy as np
 
-from experiments_runner.dataset_stores.mnist_dataset_store import MNISTTestDatasetStore
-from experiments_runner.expertiments_runner import ExperimentsRunner
-from experiments_runner.metrics_runners.accuracy_metric_runner import AccuracyMetricRunner
-from experiments_runner.metrics_runners.mnist_accuracy_metric_runner import MNISTAccuracyMetricRunner
-from experiments_runner.models_runners.model_runner import ModelRunner
-from experiments_runner.models_runners.simple_model_runner import SimpleModelRunner
-from experiments_runner.results_aggregators.table_results_aggregator import TableResultsAggregator
+from ml_exp_comparator.dataset_stores.mnist_dataset_store import MNISTTestDatasetStore
+from ml_exp_comparator.expertiments_runner import ExperimentsRunner
+from ml_exp_comparator.metrics_runners.accuracy_metric_runner import AccuracyMetricRunner
+from ml_exp_comparator.metrics_runners.mnist_accuracy_metric_runner import MNISTAccuracyMetricRunner
+from ml_exp_comparator.models_runners.model_runner import ModelRunner
+from ml_exp_comparator.models_runners.simple_model_runner import SimpleModelRunner
+from ml_exp_comparator.results_aggregators.table_results_aggregator import TableResultsAggregator
 
 
 def to_one_hot(values: np.ndarray) -> np.ndarray:

@@ -2,9 +2,9 @@ import typing as tp
 from math import ceil
 
 import numpy as np
-from keras import datasets
+import tensorflow as tf
 
-from experiments_runner.dataset_stores.dataset_store import DatasetStore
+from ml_exp_comparator.dataset_stores.dataset_store import DatasetStore
 
 
 class MNISTDatasetStore(DatasetStore):
@@ -31,7 +31,7 @@ class MNISTTrainDatasetStore(MNISTDatasetStore):
     def __init__(self):
         super().__init__(name='mnist_train')
 
-        (x_train, y_train), _ = datasets.mnist.load_data()
+        (x_train, y_train), _ = tf.keras.datasets.mnist.load_data()
         self.x_vals, self.y_vals = self._prep_data(x_train, y_train)
 
 
@@ -39,5 +39,5 @@ class MNISTTestDatasetStore(MNISTDatasetStore):
     def __init__(self):
         super().__init__(name='mnist_test')
 
-        _, (x_test, y_test) = datasets.mnist.load_data()
+        _, (x_test, y_test) = tf.keras.datasets.mnist.load_data()
         self.x_vals, self.y_vals = self._prep_data(x_test, y_test)

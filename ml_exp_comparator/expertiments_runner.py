@@ -1,9 +1,9 @@
 import typing as tp
 
-from experiments_runner.dataset_stores.dataset_store import DatasetStore
-from experiments_runner.metrics_runners.metric_runner import MetricRunner
-from experiments_runner.models_runners.model_runner import ModelRunner
-from experiments_runner.results_aggregators.results_aggregator import ResultsAggregator
+from ml_exp_comparator.dataset_stores.dataset_store import DatasetStore
+from ml_exp_comparator.metrics_runners.metric_runner import MetricRunner
+from ml_exp_comparator.models_runners.model_runner import ModelRunner
+from ml_exp_comparator.results_aggregators.results_aggregator import ResultsAggregator
 
 
 class ExperimentsRunner:

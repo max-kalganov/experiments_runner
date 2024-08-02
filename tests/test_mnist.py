@@ -4,8 +4,8 @@ from itertools import chain
 
 import numpy as np
 
-from experiments_runner.dataset_stores.dataset_store import DatasetStore
-from experiments_runner.dataset_stores.mnist_dataset_store import MNISTTrainDatasetStore, MNISTTestDatasetStore
+from ml_exp_comparator.dataset_stores.dataset_store import DatasetStore
+from ml_exp_comparator.dataset_stores.mnist_dataset_store import MNISTTrainDatasetStore, MNISTTestDatasetStore
 
 
 class TestMnist(unittest.TestCase):

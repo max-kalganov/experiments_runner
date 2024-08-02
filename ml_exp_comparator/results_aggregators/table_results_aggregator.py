@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import pandas as pd
 import typing as tp
 
-from experiments_runner.results_aggregators.results_aggregator import ResultsAggregator
+from ml_exp_comparator.results_aggregators.results_aggregator import ResultsAggregator
 
 table_res_logger = logging.getLogger('TableResAggLogger')
 

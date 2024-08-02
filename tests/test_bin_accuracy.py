@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from experiments_runner.metrics_runners.bin_accuracy_metric_runner import BinAccuracyMetricRunner
+from ml_exp_comparator.metrics_runners.bin_accuracy_metric_runner import BinAccuracyMetricRunner
 from tests.test_utils import TestCaseParams, TestCompleteRunParams
 
 

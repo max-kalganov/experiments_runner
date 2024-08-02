@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from experiments_runner.results_aggregators.table_results_aggregator import TableResultsAggregator
+from ml_exp_comparator.results_aggregators.table_results_aggregator import TableResultsAggregator
 
 
 class TestTableResAgg(unittest.TestCase):

@@ -2,7 +2,7 @@ import typing as tp
 
 import numpy as np
 
-from experiments_runner.metrics_runners.metric_runner import MetricRunner
+from ml_exp_comparator.metrics_runners.metric_runner import MetricRunner
 
 
 class MNISTAccuracyMetricRunner(MetricRunner):
